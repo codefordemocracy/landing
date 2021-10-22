@@ -1,0 +1,35 @@
+{% extends "index.html.j2" %}
+{% block title %}Volunteer{% endblock %}
+{% block content %}
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto">
+    <div class="max-w-3xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">We're looking for <span class="font-medium">volunteers</span> who are eager to make a difference</p>
+      <p class="text-lg md:text-xl font-light leading-relaxed md:leading-relaxed mt-5 md:mt-7 mb-7">All roles are remote and unpaid. Generally, we ask you to dedicate at least 10 hours of time. We hate to turn anyone away, but a smaller commitment will be inefficient for both you and us.</p>
+      <p class="text-muted leading-relaxed mt-4 md:mt-7 mb-4">Last Updated: September 21, 2021</p>
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+<!-- roles -->
+<section class="container px-5 mx-auto mb-12">
+  {% for group in roles %}
+    <div class="pb-12">
+      <h2 class="label text-lg mb-7">[[group.name]]</h2>
+      {% for listing in group.listings %}
+      <a href="mailto:info@codefordemocracy.org?subject=[[listing.title]]" class="btn btn-primary px-8 py-5 rounded mb-3 grid grid-cols-1 lg:grid-cols-2 lg:gap-5">
+        <div class="text-left text-white flex items-center">[[listing.title]]</div>
+        <div class="text-xs flex items-center justify-start text-left lg:justify-end lg:text-right text-light">
+          {% for skill in listing.skills %}[[skill]]{% if loop.revindex > 1 %} &middot; {% endif %}{% endfor %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>
+<!-- / roles -->
+
+{% endblock %}

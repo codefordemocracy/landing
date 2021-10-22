@@ -1,0 +1,72 @@
+{% extends "index.html.j2" %}
+{% block title %}Donate{% endblock %}
+{% block head %}
+<script src="//js.stripe.com/v3/"></script>
+{% endblock %}
+{% block content %}
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto">
+    <div class="max-w-3xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">We can't make the magic happen without your <span class="font-medium">donation</span></p>
+      <p class="text-lg md:text-xl font-light leading-relaxed md:leading-relaxed mt-5 md:mt-7 mb-7">We are a tax-deductible 501(c)(3) nonprofit. Make a one-time donation and help keep our tools free for journalists, researchers, and open government advocates.</p>
+      <p class="text-muted leading-relaxed mt-4 md:mt-7 mb-4">If you have a donor-advised fund, you can direct donations to EIN 83-3407325.</p>
+    </div>
+    <div class="mt-10" id="donate" v-cloak>
+      <form class="form-lg sm:flex" @submit.prevent="donate()">
+        <div class="input-group">
+          <div class="input-group-prepend">$</div>
+          <input class="input-group-element" v-model="dollars" type="number" min="0.5" step="0.01" v-on:keyup="error=false" />
+        </div>
+        <input type="submit" class="btn btn-primary mt-3 w-full sm:mt-0 sm:ml-3 sm:w-auto" value="Make a Donation" :disabled="dollars < 0.5" />
+      </form>
+      <p class="text-error text-sm mt-5" v-if="error">An error has occurred.</p>
+      {% if success %}
+      <p class="text-info text-sm mt-5">Thank you for your contribution!</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+
+  const stripe = Stripe('pk_live_hLa4UfZgHtUOGwNwosicZ2yM')
+
+  new Vue({
+    el: '#donate',
+    data: {
+      error: false,
+      dollars: [[amount]]
+    },
+    methods: {
+      donate() {
+        var self = this
+        this.error = false
+        this.$http.post('/api/donate/', {cents: this.dollars*100})
+        .then(function(response) {
+          return response.data;
+        })
+        .then(function(session) {
+          return stripe.redirectToCheckout({ sessionId: session.id })
+        })
+        .then(function(result) {
+          if (result.error) {
+            self.error = true
+          }
+        })
+        .catch(function(error) {
+          self.error = true
+          console.error(error)
+        })
+      }
+    }
+  });
+
+</script>
+
+{% endblock %}

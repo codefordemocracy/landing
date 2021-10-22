@@ -1,0 +1,32 @@
+[v-cloak] {
+  display: none !important;
+}
+
+/* Header */
+
+.nav-link {
+  color: #666666;
+}
+
+.nav-link.active {
+  color: #151515;
+}
+
+/* Subscribe */
+
+#subscribe {
+  background-color: #232323;
+}
+
+/* Footer */
+
+#copyright {
+  border-top: 1px solid #222;
+  letter-spacing: 2px;
+}
+
+/* Data */
+
+#cadence .cursor-pointer {
+  cursor: default !important;
+}

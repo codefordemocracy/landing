@@ -1,0 +1,30 @@
+{% extends "index.html.j2" %}
+{% block supertitle %}Code for Democracy &mdash; Write Code, Defend Democracy{% endblock %}
+{% block head %}
+<meta name="description" content="We build search, visualization, and alerting tools that make it easy to investigate relationships between campaign contributions, political narratives, and legislative outcomes in the US. A 501(c)(3) nonprofit.">
+<meta property="og:image" content="https://assets.codefordemocracy.org/img/cover.png" />
+{% endblock %}
+{% block content %}
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto">
+    <div class="max-w-5xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">We build <span class="font-medium">search, visualization, and alerting tools</span> that make it easy to investigate relationships between campaign contributions, political narratives, and legislative outcomes</p>
+      <a href="https://tools.codefordemocracy.org" class="btn btn-lg btn-primary mt-7" target="_blank">Launch Our Tools</a>
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+<!-- press -->
+<section class="py-5">
+  <div class="container mx-auto flex justify-between sm:justify-end items-center">
+    <a href="https://www.npr.org/2020/10/05/918520692/facebook-keeps-data-secret-letting-conservative-bias-claims-persist" target="_blank"><img src="[[ url_for('static', filename='img/press/npr.png') ]]" class="mx-3 p-3" width="94" height="68"></a>
+    <a href="https://www.vox.com/recode/21419328/facebook-conservative-bias-right-wing-crowdtangle-election" target="_blank"><img src="[[ url_for('static', filename='img/press/vox.png') ]]" class="mx-3 p-3" width="83" height="40"></a>
+    <a href="https://wearecommons.us/the-role-of-open-source-researchers-in-election-security/" target="_blank"><img src="[[ url_for('static', filename='img/press/commons.png') ]]" class="mx-3 p-3" width="117" height="40"></a>
+  </div>
+</section>
+<!-- / press -->
+
+{% endblock %}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="icon" type="image/png" href="//assets.codefordemocracy.org/img/favicon.png" />
+
+    <link rel="stylesheet" href="//assets.codefordemocracy.org/css/cfd.css">
+    <link rel="stylesheet" href="[[ url_for('static', filename='css/app.css') ]]">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <title>{% block supertitle %}{% block title %}{% endblock %} &mdash; Code for Democracy{% endblock %}</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142391396-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-142391396-1');
+    </script>
+
+    {% block head %}{% endblock %}
+
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="container px-5 py-7 mx-auto" id="navbar">
+      <nav class="navbar flex flex-wrap justify-between items-stretch">
+        <div class="flex items-center flex-shrink-0">
+          <a class="navbar-brand" href="[[ url_for('route_home') ]]">
+            <img class="navbar-logo" src="//assets.codefordemocracy.org/img/logo-small.png" width="147" height="62">
+          </a>
+        </div>
+        <template v-cloak>
+          <div class="block lg:hidden">
+            <button class="fas fa-bars p-5" @click="open = !open"></button>
+          </div>
+          <div class="text-sm w-full lg:flex lg:flex-grow lg:items-center lg:w-auto" :class="open ? 'block' : 'hidden'">
+            <div class="flex flex-col lg:flex-row lg:flex-grow lg:items-center lg:justify-end pt-4 lg:pt-0">
+              {% macro navlink(endpoint, name) %}
+                {% if request.endpoint.endswith(endpoint) %}
+                  <a class="nav-link active uppercase tracking-wide lg:mx-4 mt-5 lg:mt-0" href="[[ url_for(endpoint) ]]">[[name]]</a>
+                {% else %}
+                  <a class="nav-link uppercase tracking-wide lg:mx-4 mt-5 lg:mt-0" href="[[ url_for(endpoint) ]]">[[name]]</a>
+                {% endif %}
+              {% endmacro %}
+              [[ navlink('route_home', 'Home') ]]
+              [[ navlink('route_tools', 'Tools') ]]
+              [[ navlink('route_data', 'Data') ]]
+              [[ navlink('route_about', 'About') ]]
+              <a class="btn btn-red btn-sm uppercase lg:ml-4 mt-5 lg:mt-0 tracking-wide" href="[[ url_for('route_donate') ]]">Donate</a>
+            </div>
+          </div>
+        </template>
+      </nav>
+    </header>
+    <!-- header -->
+
+    {% block content %}{% endblock %}
+
+    <!-- subscribe -->
+    <section class="py-12" id="subscribe" v-cloak>
+      <div class="container px-5 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <p class="lg:col-span-2 text-muted text-lg my-auto">Join our mailing list to receive updates on new products and features</p>
+        <div class="col-span-1">
+          <form class="form-md" @submit.prevent="subscribe()">
+            <input type="text" v-model="form.b_b4403b081b3c5fd183e8f1f60_0a70f9292d" tabindex="-1" style="position: absolute; left: -5000px;" aria-hidden="true" />
+            <div class="flex w-100">
+              <input class="form-element flex-grow bg-gray-80 text-gray-40 border-0 rounded-r-none" placeholder="you@example.com" v-model="form.EMAIL" type="email" v-on:keyup="error=false; success=false" />
+              <input type="submit" class="btn btn-gray rounded-l-none" value="Subscribe" :disabled="_.isEmpty(form.EMAIL)" />
+            </div>
+          </form>
+          <p class="text-gray-40 text-xs mt-3 -mb-7" v-if="error">An error has occurred.</p>
+          <p class="text-gray-40 text-xs mt-3 -mb-7" v-if="success">You're all set!</p>
+        </div>
+      </div>
+    </section>
+    <!-- / subscribe -->
+
+    <!-- footer -->
+    <footer class="bg-darker text-white">
+      <div class="container py-9 px-5 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <ul class="lg:col-span-2 text-sm text-muted flex flex-col sm:flex-row items-center justify-center lg:justify-start lg:-ml-4">
+          {% macro footlink(endpoint, name) %}
+            <li class="m-4"><a class="uppercase tracking-wide" href="[[ url_for(endpoint) ]]">[[name]]</a></li>
+          {% endmacro %}
+          [[ footlink('route_donate', 'Donate') ]]
+          [[ footlink('route_volunteer', 'Volunteer') ]]
+          [[ footlink('route_legal', 'Legal') ]]
+          [[ footlink('route_contact', 'Contact') ]]
+        </ul>
+        <ul class="col-span-1 text-xl text-muted flex items-center justify-center lg:justify-end lg:-mr-3">
+          <li class="px-3"><a href="https://github.com/codefordemocracy" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li class="px-3"><a href="https://twitter.com/CFDorg" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li class="px-3"><a href="https://www.facebook.com/codefordemocracy" target="_blank"><i class="fab fa-facebook"></i></a></li>
+          <li class="px-3"><a href="https://www.instagram.com/codefordemocracy/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li class="px-3"><a href="https://www.linkedin.com/company/codefordemocracy/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <div id="copyright">
+        <div class="container py-7 px-5 mx-auto">
+          <p class="text-xs uppercase text-gray text-center lg:text-left">© [[now.year]] Code for Democracy. A 501(c)(3) nonprofit. EIN 83-3407325.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- / footer -->
+
+    <script src="//cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+    <script src="[[ url_for('static', filename='js/app.js') ]]"></script>
+
+    {% block scripts %}{% endblock %}
+
+  </body>
+</html>

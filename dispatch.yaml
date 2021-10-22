@@ -1,0 +1,9 @@
+dispatch:
+- url: "codefordemocracy.org/*"
+  service: default
+- url: "api.codefordemocracy.org/*"
+  service: api
+- url: "tools.codefordemocracy.org/*"
+  service: tools
+- url: "account.codefordemocracy.org/*"
+  service: account

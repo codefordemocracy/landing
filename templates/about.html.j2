@@ -1,0 +1,97 @@
+{% extends "index.html.j2" %}
+{% block title %}About{% endblock %}
+{% block content %}
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto">
+    <div class="max-w-4xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">We're a 501(c)(3) nonprofit that <span class="font-medium">fights hidden influence in US politics</span> by building tools that automate the analysis of open data</p>
+      <p class="text-lg md:text-xl font-light leading-relaxed md:leading-relaxed mt-5 md:mt-7 mb-7">Code for Democracy helps journalists, researchers, and open government advocates investigate relationships between campaign contributions, political narratives, and legislative outcomes. Our mission is to strengthen democratic processes by creating digital tools that support free and fair elections, open governance, and fact-based public policy.</p>
+      <p class="text-lg md:text-xl font-light leading-relaxed md:leading-relaxed mt-5 md:mt-7 mb-7">Code for Democracy started as a volunteer-driven meetup in NYC, SF, DC, and Boston in 2017 and gained its nonprofit status in 2019. We are a non-partisan, values-based organization driven by our commitment to transparency and accountability.</p>
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+<!-- team -->
+<section class="bg-light border-t border-secondary py-20">
+  <div class="container px-5 mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div>
+        <h2 class="text-5xl font-light mb-7">Our <span class="font-medium">Team</span></h2>
+        <p class="text-xl font-light leading-relaxed">We're a team of data enthusiasts and startup veterans excited about improving democracy.</p>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+          <div>
+            <img src="[[ url_for('static', filename='img/people/kathy.jpg') ]]">
+            <h5 class="text-xl mt-5">Kathy Qian</h5>
+            <h6 class="text-sm label mb-3">Co-Founder & Executive Director</h6>
+            <p class="text-sm">Kathy is a strategy consultant turned data scientist who has worked on civil rights litigation with the ACLU, in the Innovation Labs of the World Bank, and at an enterprise software startup that was acquired for $600M. She has a BA in Economics from the University of Pennsylvania.</p>
+          </div>
+          <div>
+            <img src="[[ url_for('static', filename='img/people/cole.png') ]]">
+            <h5 class="text-xl mt-5">Cole Dutcher</h5>
+            <h6 class="text-sm label mb-3">Co-Founder</h6>
+            <p class="text-sm">Cole is a director of engineering at Walmart, brought there via the acquisition of Jet.com, where he was an early pre-launch hire. He has built out and scaled up the engineering and technical operations at several startups and holds an AB in Astrophysics from Harvard University.</p>
+          </div>
+          <div>
+            <img src="[[ url_for('static', filename='img/people/philippe.png') ]]">
+            <h5 class="text-xl mt-5">Philippe Marinier</h5>
+            <h6 class="text-sm label mb-3">Board Member</h6>
+            <p class="text-sm">Philippe is the CEO of Cabrico Consulting. He held senior management positions across the corporate development, product and go to market functions of companies like Cloudera, Salesforce, Documentum and McKinsey. He is an engineer with an MBA from Columbia business school.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / team -->
+
+<!-- tribe -->
+<section class="border-t border-secondary py-20">
+  <div class="container px-5 mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div>
+        <h2 class="text-5xl font-light mb-7">Our <span class="font-medium">Tribe</span></h2>
+        <p class="text-xl font-light leading-relaxed">Our work wouldn't be possible without the early believers who took a chance on us.</p>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://www.southparkcommons.com/" class="text-lg text-primary" target="_blank">South Park Commons</a>
+            <h6 class="text-xs label">Community</h6>
+          </div>
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://www.beondeck.com/" class="text-lg text-primary" target="_blank">On Deck</a>
+            <h6 class="text-xs label">Community</h6>
+          </div>
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://www.aaja.org/" class="text-lg text-primary" target="_blank">AAJA</a>
+            <h6 class="text-xs label">Mentorship</h6>
+          </div>
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://www.bakerthomaslaw.com/" class="text-lg text-primary" target="_blank">Baker Thomas Oakley Greene</a>
+            <h6 class="text-xs label">Law</h6>
+          </div>
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://www.hansonbridgett.com/" class="text-lg text-primary" target="_blank">Hanson Bridgett</a>
+            <h6 class="text-xs label">Law</h6>
+          </div>
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://www.presidentialscholars.org/" class="text-lg text-primary" target="_blank">US Presidential Scholars Foundation</a>
+            <h6 class="text-xs label">Funding</h6>
+          </div>
+          <div class="border-l-4 border-secondary pl-5">
+            <a href="https://ncopengov.org/" class="text-lg text-primary" target="_blank">NC Open Government Coalition</a>
+            <h6 class="text-xs label">Funding</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / tribe -->
+
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends "index.html.j2" %}
+{% block title %}Data{% endblock %}
+{% block content %}
+
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto flex">
+    <div class="max-w-xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">Build custom analytics pipelines using <span class="font-medium">our data</span></p>
+      <p class="text-lg md:text-xl font-light leading-relaxed md:leading-relaxed mt-5 md:mt-7 mb-7">Discover tailor-made insights without the data-cleaning pain by connecting your business logic to our infrastructure</p>
+      <a href="https://api.codefordemocracy.org" target="_blank" class="btn btn-lg btn-primary w-full sm:w-auto mb-1">Explore Our API</a>
+      <a href="https://docs.codefordemocracy.org/data/" target="_blank" class="btn btn-lg btn-secondary w-full sm:w-auto mb-1">View Documentation</a>
+    </div>
+    <div class="flex-grow ml-12 hidden lg:block">
+      <!-- <img src="https://placehold.co/350x330" class="hidden lg:block xl:hidden ml-auto" />
+      <img src="https://placehold.co/600x330" class="hidden xl:block ml-auto" /> -->
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+<!-- sources -->
+<section class="bg-light border-t border-secondary py-10 md:py-20">
+  <div class="container px-5 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="text-center bg-white p-10 rounded-sm filter drop-shadow-sm">
+      <i class="fas fa-money-bill-alt text-7xl text-gray"></i>
+      <h3 class="text-xl tracking-wider uppercase text-darker mt-5 mb-3">Campaign Finance</h3>
+      <p>We track all contributions and expenditures that are reported to the Federal Election Committee</p>
+    </div>
+    <div class="text-center bg-white p-10 rounded-sm filter drop-shadow-sm">
+      <i class="fas fa-comments-dollar text-7xl text-gray"></i>
+      <h3 class="text-xl tracking-wider uppercase text-darker mt-5 mb-3">Lobbying Disclosures</h3>
+      <p>We track all lobbying disclosures and contributions that are reported to the House and Senate</p>
+    </div>
+    <div class="text-center bg-white p-10 rounded-sm filter drop-shadow-sm">
+      <i class="fas fa-file-invoice-dollar text-7xl text-gray"></i>
+      <h3 class="text-xl tracking-wider uppercase text-darker mt-5 mb-3">Tax Documents</h3>
+      <p>We track all 990 returns submitted by nonprofits that are reported to the Internal Revenue Service</p>
+    </div>
+    <div class="text-center bg-white p-10 rounded-sm filter drop-shadow-sm">
+      <i class="fas fa-newspaper text-7xl text-gray"></i>
+      <h3 class="text-xl tracking-wider uppercase text-darker mt-5 mb-3">News Articles</h3>
+      <p>We track front-page news stories from 3000+ sources across the political and credibility spectrum</p>
+    </div>
+    <div class="text-center bg-white p-10 rounded-sm filter drop-shadow-sm">
+      <i class="fab fa-facebook text-7xl text-gray"></i>
+      <h3 class="text-xl tracking-wider uppercase text-darker mt-5 mb-3">Facebook Ads</h3>
+      <p>We track all ads related to issues, elections, or politics that are made available by Facebook</p>
+    </div>
+    <div class="text-center bg-white p-10 rounded-sm filter drop-shadow-sm">
+      <i class="fab fa-twitter text-7xl text-gray"></i>
+      <h3 class="text-xl tracking-wider uppercase text-darker mt-5 mb-3">Tweets</h3>
+      <p>We track the latest tweets from political candidates who have declared candidacy for a federal office</p>
+    </div>
+    <div class="md:col-span-2 lg:col-span-3 bg-dark rounded-sm p-7 flex flex-col md:flex-row items-stretch md:items-center justify-between">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="text-center text-white mb-4 md:mb-0"><i class="fa fa-lightbulb text-3xl md:mr-5"></i></div>
+        <p class="text-center md:text-left text-white font-light text-xl">Need a bulk export or recurring data feed? We can help!</p>
+      </div>
+      <a class="btn btn-md btn-white text-dark font-medium mt-5 md:mt-0 lg:px-12" href="mailto:info@codefordemocracy.org?subject=Bulk%20Export%20or%20Data%20Feed">Contact Us</a>
+    </div>
+  </div>
+</section>
+<!-- /sources -->
+
+<!-- count -->
+<section class="border-t border-secondary">
+  <div class="container px-5 mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-0">
+    <div class="pt-12 md:pb-12 md:pr-12 xl:py-20 xl:pr-20 md:border-r border-secondary">
+      <h6 class="text-7xl font-bold text-red">17M+</h6>
+      <h5 class="text-2xl font-light my-3">Entities</h5>
+      <p class="text-lg">We process our tracked datasets and extract political candidates, political action committees, political donors, political ad purchasers, and political vendors</p>
+    </div>
+    <div class="pb-12 md:pt-12 md:pl-12 xl:py-20 xl:pl-20">
+      <h6 class="text-7xl font-bold text-red">289M+</h6>
+      <h5 class="text-2xl font-light my-3">Relationships</h5>
+      <p class="text-lg">We process our tracked datasets and extract both explicit connections based on transactions as well as implicit connections based on metadata, hashtags, and named entities</p>
+    </div>
+</section>
+<!-- / count -->
+
+<!-- cadence -->
+<section class="border-t border-secondary pt-20 overflow-hidden" id="cadence">
+  <div class="container px-5 mx-auto">
+    <p class="text-4xl font-extralight leading-snug max-w-3xl">We're constantly monitoring the datasets we track for updates, which means we add <span class="font-medium text-red">100K+ new documents every day</span></p>
+  </div>
+  <plot :settings="histogram(cadence)"></plot>
+</section>
+<!-- /cadence -->
+
+{% endblock %}
+{% block scripts %}
+
+<script src="//cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="//assets.codefordemocracy.org/js/components/plot.js"></script>
+
+<script>
+
+  new Vue({
+    el: '#cadence',
+    components: {
+      'plot': plot
+    },
+    methods: {
+      histogram(buckets) {
+        return {
+          data: [
+            {
+              x: _.range(1, 20),
+              y: _.map(_.range(1, 20), function(x) { return x^2 }),
+              type: "bar",
+              marker: {
+                color: '#e5e5e5'
+              },
+              hoverinfo: 'none'
+            }
+          ],
+          layout: {
+            height: 175,
+            xaxis: {
+              linecolor: '#e5e5e5',
+              showgrid: false,
+              showticklabels: false,
+              fixedrange: true
+            },
+            yaxis: {
+              zeroline: false,
+              showgrid: false,
+              showticklabels: false,
+              fixedrange: true
+            },
+            margin: {
+              l: 0,
+              r: 0,
+              t: 0,
+              b: 0
+            }
+          },
+          config: {
+            displayModeBar: false,
+            responsive: true
+          },
+        }
+      }
+    }
+  });
+
+</script>
+
+{% endblock %}

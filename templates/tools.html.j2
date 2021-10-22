@@ -1,0 +1,53 @@
+{% extends "index.html.j2" %}
+{% block title %}Tools{% endblock %}
+{% block content %}
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto flex">
+    <div class="max-w-2xl lg:max-w-xl xl:max-w-2xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">Supercharge your <span class="font-medium">investigative workflows</span> with our search, visualization, and alerting tools</p>
+      <p class="text-lg md:text-xl font-light leading-relaxed md:leading-relaxed mt-5 md:mt-7 mb-7">Test hypotheses faster by running queries in a single unified platform and leveraging our pre-loaded lists and analytical recipes</p>
+      <a href="https://tools.codefordemocracy.org" target="_blank" class="btn btn-lg btn-primary w-full sm:w-auto mb-1">Launch Our Tools</a>
+      <a href="https://docs.codefordemocracy.org/tools/" target="_blank" class="btn btn-lg btn-secondary w-full sm:w-auto mb-1">View Documentation</a>
+    </div>
+    <div class="flex-grow ml-12 hidden lg:block">
+      <!-- <img src="https://placehold.co/360x460" class="hidden lg:block xl:hidden ml-auto" />
+      <img src="https://placehold.co/520x400" class="hidden xl:block ml-auto" /> -->
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+<!-- features -->
+<section class="bg-light border-t border-secondary py-20">
+  <div class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 px-5 mx-auto">
+    <div>
+      <p class="text-darker text-2xl md:text-3xl font-light leading-snug md:leading-snug">Standardized bulk search across multiple datasets</p>
+      <p class="font-light leading-relaxed mt-3">Run the same queries across campaign finance, lobbying, 990, news, and social media datasets without needing to navigate separate systems</p>
+    </div>
+    <div>
+      <p class="text-darker text-2xl md:text-3xl font-light leading-snug md:leading-snug">Email alerts when new search results are available</p>
+      <p class="font-light leading-relaxed mt-3">Stay on top of new data by setting up weekly or daily alerts that automatically update you when new search results are found</p>
+    </div>
+    <div>
+      <p class="text-darker text-2xl md:text-3xl font-light leading-snug md:leading-snug">Integrations with popular visualization engines</p>
+      <p class="font-light leading-relaxed mt-3">Transform search results using aggregations and send the data to Datawrapper in order to create embeddable charts and tables</p>
+    </div>
+    <div>
+      <p class="text-darker text-2xl md:text-3xl font-light leading-snug md:leading-snug">Pre-loaded search queries as customizable starting points</p>
+      <p class="font-light leading-relaxed mt-3">Get to immediate insights by running queries on pre-researched lists of people and organizations we maintain or clone and edit them as you'd like</p>
+    </div>
+    <div>
+      <p class="text-darker text-2xl md:text-3xl font-light leading-snug md:leading-snug">Linkable search results for sharing and collaboration</p>
+      <p class="font-light leading-relaxed mt-3">Share search results with your audience or team members using the unique link that's generated for every query you save</p>
+    </div>
+    <div>
+      <p class="text-darker text-2xl md:text-3xl font-light leading-snug md:leading-snug">Data dumps that can be used in other applications</p>
+      <p class="font-light leading-relaxed mt-3">Download row-by-row data from queries in CSV or JSON format and use them in Excel, custom visualizations, or other applications</p>
+    </div>
+  </div>
+</section>
+<!-- /features -->
+
+{% endblock %}

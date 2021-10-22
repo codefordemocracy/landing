@@ -1,0 +1,30 @@
+{% extends "index.html.j2" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+
+<!-- cover -->
+<section class="py-10 md:py-20 mb-5 md:mb-12">
+  <div class="container px-5 mx-auto">
+    <div class="max-w-3xl">
+      <p class="text-darker text-3xl md:text-5xl font-extralight leading-snug md:leading-snug">We're a <span class="font-medium">fully remote team</span> without an office, so the best way to contact us is over email or at our mailing address</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-5 mt-12">
+        <div>
+          <h4 class="text-2xl mb-5 font-light">Email</h4>
+          <a href="mailto:info@codefordemocracy.org" class="text-red">info@codefordemocracy.org</a>
+        </div>
+        <div>
+          <h4 class="text-2xl mb-5 font-light">Mailing Address</h4>
+          <p>
+            Code for Democracy<br/>
+            177 Huntington Ave Ste 1703<br/>
+            PMB 57044<br/>
+            Boston, MA 02115-3153
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /cover -->
+
+{% endblock %}
