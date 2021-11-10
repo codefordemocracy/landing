@@ -1,5 +1,8 @@
 {% extends "index.html.j2" %}
 {% block title %}Data{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+{% endblock %}
 {% block content %}
 
 
@@ -12,9 +15,26 @@
       <a href="https://api.codefordemocracy.org" target="_blank" class="btn btn-lg btn-primary w-full sm:w-auto mb-1">Explore Our API</a>
       <a href="https://docs.codefordemocracy.org/data/" target="_blank" class="btn btn-lg btn-secondary w-full sm:w-auto mb-1">View Documentation</a>
     </div>
-    <div class="flex-grow ml-12 hidden lg:block">
-      <!-- <img src="https://placehold.co/350x330" class="hidden lg:block xl:hidden ml-auto" />
-      <img src="https://placehold.co/600x330" class="hidden xl:block ml-auto" /> -->
+    <div class="flex-grow ml-12 mb-auto hidden lg:block text-xs overflow-auto" style="background-color:#F0F0F0;">
+      <pre><code class="language-python px-6">
+from urllib.parse import urlencode
+import requests
+import json
+
+# set your credentials
+client_id = "XXXXXXXXXXXXXXXXXXXXXXX"
+client_secret = "XXXXXXXXXXXXXXXXXXXXXXX"
+
+# this function gets the response from our API
+def post(endpoint, body):
+    url = "https://api.codefordemocracy.org"
+    response = requests.post(url+endpoint, data=json.dumps(body), auth=(client_id, client_secret))
+    if response.status_code == 200:
+        return json.loads(response.text)
+    return []
+
+# your code goes here
+      </code></pre>
     </div>
   </div>
 </section>
@@ -92,8 +112,11 @@
 {% endblock %}
 {% block scripts %}
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
 <script src="//cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="//assets.codefordemocracy.org/js/components/plot.js"></script>
+
+<script>hljs.highlightAll();</script>
 
 <script>
 
